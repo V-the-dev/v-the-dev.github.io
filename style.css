@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --bg-dark: #0d0d0d;
+    --bg-section: #1a1a1a;
+    --text-color: #f0f0f0;
+    --accent: #8800ff;
+    --accent-glow: 0 0 8px #8800ff;
+    --font: 'Orbitron', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: var(--font), serif;
+    scroll-behavior: smooth;
+}
+
+/* ---------- NAVEGACIÓN ---------- */
+
+.nav-header {
+    width: 100%;
+    background: #111;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 999;
+    position: relative;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+#language-toggle {
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+}
+
+/* Menú principal */
+#nav {
+    margin-left: auto;
+}
+
+#nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+#nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#nav a:hover {
+    color: var(--accent);
+}
+
+#language-inner-text {
+    display: none;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    width: 30px;
+    height: 25px;
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--accent);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -10px);
+}
+
+/* Responsive */
+@media (max-width: 841px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    #nav ul {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        border: 1px solid var(--accent);
+    }
+
+    #nav.active ul {
+        display: flex;
+    }
+
+    #nav.active #language-inner-text {
+        display: inline;
+    }
+    
+    .nav-header {
+        flex-wrap: wrap;
+    }
+
+    #nav {
+        width: 100%;
+    }
+    
+    #labelText {
+        display: none;
+    }
+    
+    #educacion-animacion {
+        display: none;
+    }
+}
+
+@media(max-height: 800px) {
+    #educacion-animacion {
+        display: none;
+    }
+}
+
+/* Sticky nav al hacer scroll */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* ---------- BANNER ---------- */
+.banner {
+    position: relative;
+    min-height: 15em;
+    height: 20vh;
+    background-color: #000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    padding-bottom: 4rem;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    text-shadow: var(--accent-glow);
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Responsive banner */
+@media (max-width: 841px) {
+    .banner {
+        min-height: 30em;
+    }
+}
+/* Avatar sobre el banner */
+.avatar-banner-face {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    object-fit: cover;
+    box-shadow: var(--accent-glow);
+    z-index: 2;
+    background-color: #000;
+}
+
+/* Responsive avatar */
+@media (max-width: 841px) {
+    .avatar-banner-face {
+        position: absolute;
+        bottom: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 200px;
+        z-index: 2;
+    }
+
+    .banner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 4rem;
+    }
+
+    .banner-content {
+        margin-top: 150px; /* espacio para que no solape el avatar */
+    }
+}
+
+/* Fondo del banner */
+.avatar-banner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+/* ---------- SECCIONES ---------- */
+
+.section {
+    padding: 5rem 2rem;
+    background-color: var(--bg-section);
+    text-align: center;
+    opacity: 0;
+}
+
+.section:not(#contacto) {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section#educacion {
+    align-items: normal;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    text-shadow: var(--accent-glow);
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ---------- SOBRE MÍ CON VIDEO ---------- */
+
+.video-bg {
+    position: relative;
+    padding: 5rem 2rem;
+    overflow: hidden;
+    color: white;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.video-bg .overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+#about-me-text {
+    font-size: 1.2rem;
+}
+
+/* ---------- EDUCACIÓN ---------- */
+
+.education-list {
+    list-style: square inside;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.section#educacion {
+    position: relative;
+    overflow: hidden;
+}
+
+#road-svg {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+#road-path, #road-base, #road-center-line {
+    width: 100%;
+}
+
+.road-label {
+    position: absolute;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: 50%;
+    left: 50%;
+}
+
+.road-label-img{
+    max-width: 200px;
+}
+
+#label1 {
+    transform: translate(-60%, -90%);
+}
+
+#label2 {
+    transform: translate(-140%, -40%);
+}
+
+#label3 {
+    transform: translate(-10%, 10%);
+}
+
+/* Imágenes para móvil */
+.road-image, .road-image-desc {
+    display: none;
+}
+
+.road-image-image {
+    max-width: 30%;
+    height: auto;
+}
+
+.road-image-desc {
+    padding-bottom: 50px;
+}
+
+/* La parte responsive de la animación */
+@media (max-width: 841px){
+    .road-image, .road-image-desc {
+        display: inline;
+    }
+}
+
+@media(max-height: 800px) {
+    .road-image, .road-image-desc {
+        display: inline;
+    }
+}
+
+/* ---------- PROYECTOS CON VIDEO ---------- */
+
+.projects-section {
+    position: relative;
+}
+
+.section-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.projects-grid {
+    display: grid;
+    max-width: 1000px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.project-card {
+    background: #222;
+    padding: 1.5rem;
+    border: 1px solid #333;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 0 10px rgba(0, 255, 231, 0.1);
+    transition: transform 0.3s ease, background 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+}
+
+/* -------- POPUP / MODAL -------- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 20px var(--accent);
+    color: var(--text-color);
+}
+
+.modal-title, .modal-text {
+    margin-bottom: 15px;
+}
+
+/* Botón cerrar */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: var(--accent);
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+}
+
+/* Botón ocultar */
+.modal-hide {
+    position: absolute;
+    top: -28px;
+    right: 40px;
+    font-size: 2rem;
+    color: var(--accent);
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+}
+
+.modal-content img {
+    max-width: 100%;
+    margin: 1rem 0;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+/* ---------- HABILIDADES ---------- */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-item {
+    text-align: center;
+    max-width: 100px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.skill-item img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- CONTACTO ---------- */
+
+#contacto .btn {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.contact-mail{
+    padding: 2rem;
+}
+
+.contact-CV{
+    padding: 2rem;
+}
+
+/* ---------- BOTÓN ---------- */
+
+.btn {
+    background-color: var(--accent);
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c563ff;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    color: #aaa;
+}

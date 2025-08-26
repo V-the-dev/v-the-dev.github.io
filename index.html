@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="shortcut icon" href="assets/V_logo.ico" />
+    <title>Víctor Herrero | Developer</title>
+    <link href="style.css" rel="stylesheet"/>
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<section id="banner" class="banner">
+    <div class="banner-content">
+        <h1>Víctor Herrero</h1>
+        <p id="text-name-desc">Desarrollador de videojuegos</p>
+    </div>
+    <img src="assets/mifoto.jpeg" alt="Mi foto" class="avatar-banner-face">
+    <img src="assets/Idea%20banner.jpg" alt="Mi banner" class="avatar-banner-background">
+</section>
+
+<header class="nav-header" id="main-nav">
+    <div class="logo">🎮 Víctor</div>
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav id="nav">
+        <ul>
+            <li><a href="#banner" id="text-inicio">Inicio</a></li>
+            <li><a href="#sobre-mi" id="text-sobre-mi">Sobre mí</a></li>
+            <li><a href="#educacion" id="text-educacion">Educación</a></li>
+            <li><a href="#proyectos" id="text-proyectos">Proyectos</a></li>
+            <li><a href="#habilidades" id="text-habilidades">Habilidades</a></li>
+            <li><a href="#contacto" id="text-contacto">Contacto</a></li>
+            <li id="language-toggle"><img id="flag-icon" src="assets/spainflag.png" alt="Español" width="32" height="20"/><a id="language-inner-text"> Español</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="section video-bg" id="sobre-mi">
+    <video autoplay class="bg-video" loop muted>
+        <source src="assets/AboutMe.mp4" type="video/mp4"/>
+    </video>
+    <div class="overlay">
+        <h2 id="title-about-me" class="section-title">Sobre mí</h2>
+        <p id="about-me-text"><br>
+            Soy un apasionado por el mundo de los videojuegos, tanto en su faceta de jugador como en la de creador.<br>
+            <br>
+            Desde siempre me ha fascinado la capacidad que tienen los videojuegos para construir mundos, contar historias y generar experiencias únicas, y esa pasión ha sido el motor que ha guiado todo mi recorrido académico y profesional.<br>
+            <br>
+            A lo largo de mi trayectoria he trabajado en diversos proyectos de videojuegos, lo que me ha permitido ocupar diferentes puestos y comprender de manera global todo el ciclo de desarrollo.<br>
+            <br>
+            Esta experiencia me ha dado no solo una visión integral del trabajo en equipo multidisciplinar, sino también la capacidad de adaptarme a distintos roles y aportar soluciones creativas y técnicas según las necesidades del proyecto.<br>
+            <br>
+            Además de mi faceta técnica, he tenido la oportunidad de participar en proyectos de cara al público, como ser presentador en galas benéficas, experiencias que me han ayudado a desarrollar habilidades de comunicación, seguridad en la expresión oral y capacidad para conectar con la audiencia, cualidades que también aplico en entornos profesionales y de trabajo colaborativo.<br>
+            <br>
+            Me defino como una persona trabajadora, motivada y con iniciativa, siempre dispuesta a ayudar, proponer mejoras y resolver problemas con eficacia.<br>
+            <br>
+            Considero que el trabajo en equipo es un pilar fundamental, ya que creo firmemente que la colaboración y la comunicación son la base para crear videojuegos de calidad.<br></p>
+    </div>
+</section>
+
+<section class="section" id="educacion">
+    <h2 id="title-education" class="section-title">Educación</h2>
+    <!-- Responsive por si es muy pequeña la animación -->
+    <div class="road-image" ><img class="road-image-image" src="assets/usal.png"></div>
+    <div class="road-image-desc">Estudié ingeniería informática en la USAL...</div>
+    <div class="road-image"><img class="road-image-image" src="assets/ucm.png"></div>
+    <div class="road-image-desc">Luego cursé un master de Desarrollo de Videojuegos en la UCM...</div>
+    <div class="road-image"><img class="road-image-image" src="assets/readyForEverything.png"></div>
+    <div class="road-image-desc">¡Y ahora estoy preparado y dispuesto a todo!</div>
+    <!--------------------------------------------------->
+    <div id="educacion-animacion">
+        <svg id="road-svg" viewBox="0 0 670 600" preserveAspectRatio="xMidYMid meet">
+            <!-- Camino gris (asfalto) -->
+            <path
+                    id="road-base"
+                    d="M0,300 
+                       H600 
+                       Q650,300 650,350 
+                       Q650,400 600,400
+                       H50 
+                       Q0,400 0,450 
+                       Q0,500 50,500
+                       H600 "
+                    stroke="#666666"
+                    stroke-width="40"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+            />
+        </svg>
+        <div class="road-label" id="label1"><img class="road-label-img" src="assets/usal.png"></div>
+        <div class="road-label" id="label2"><img class="road-label-img" src="assets/ucm.png"></div>
+        <div class="road-label" id="label3"><img class="road-label-img" src="assets/readyForEverything.png"></div>
+        <div class="road-label-text"><h3 id="labelText"></h3></div>
+    </div>
+</section>
+
+<section class="section projects-section" id="proyectos">
+    <h2 id="title-projects" class="section-title">Proyectos</h2>
+    <div class="projects-grid">
+        <div class="project-card" data-video="assets/ProjectVideos/CasoGrave.mp4">
+            <h3>Caso Grave</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/PrimeroDeClase.mp4">
+            <h3>Primero de clase</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/TheAbyss.mp4">
+            <h3>The Abyss</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/TowerOfBubble.mp4">
+            <h3>Tower of Bubble</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/JustTwinBeaver.mp4">
+            <h3>Just Twin Beaver</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/Dreadbone.mp4">
+            <h3>Dreadbone</h3>
+        </div>
+        <div class="project-card" data-video="assets/ProjectVideos/Helltech.mp4">
+            <h3>Helltech</h3>
+        </div>
+    </div>
+    <video autoplay class="section-video" id="section-video" loop muted></video>
+</section>
+
+
+<div id="project-modal" class="modal-overlay">
+    <video autoplay class="section-video" id="section-video-opened" loop muted></video>
+    <div class="modal-content" id="modal-content">
+        <span class="modal-hide">
+            <svg height="122px" viewBox="0 0 150 122" width="30px" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#8800ff" d="M65.7,97.3C36.5,97.3,13.2,80,2.1,53.9c11.2-26.1,34.5-43.4,63.6-43.4c29.1,0,52.5,17.3,63.7,43.4  
+                    C118.2,80,94.8,97.3,65.7,97.3L65.7,97.3L65.7,97.3z M65.7,86.9c23.1,0,43-13.5,52.3-33c-9.3-19.5-29.2-33-52.3-33  
+                    c-23,0-42.9,13.5-52.2,33C22.7,73.4,42.6,86.9,65.7,86.9L65.7,86.9L65.7,86.9z M41.5,53.9c0-13.4,10.8-24.2,24.1-24.2  
+                    c13.4,0,24.2,10.9,24.2,24.2c0,13.4-10.9,24.2-24.2,24.2C52.3,78.1,41.5,67.2,41.5,53.9L41.5,53.9L41.5,53.9z M67.1,47.8  
+                    c0,4.2,3.3,7.6,7.6,7.6c4.1,0,7.5-3.4,7.5-7.6c0-4.1-3.3-7.5-7.5-7.5C70.5,40.3,67.1,43.6,67.1,47.8L67.1,47.8L67.1,47.8z"/>
+                <line x1="10" y1="10" x2="123" y2="95" stroke="#800080" stroke-width="12" stroke-linecap="round"/>
+            </svg>
+        </span>
+        <span class="modal-close">&times;</span>
+        <div id="modal-body">
+            <!-- Aquí irá la información del popup dinámico de los proyectos -->
+        </div>
+    </div>
+</div>
+
+<section class="section" id="habilidades">
+    <h2 id="title-abilities" class="section-title">Habilidades</h2>
+    <h3 class="section-subtitle" id="conocimientos-title">Conocimientos</h3>
+    <div id="skills-grid-knowledge" class="skills-grid">
+        <div class="skill-item">
+            <img alt="Unity" src="assets/skills/conocimiento/unity.png">
+            <p>Unity</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Unreal Engine" src="assets/skills/conocimiento/unreal.png">
+            <p>Unreal Engine</p>
+        </div>
+        <div class="skill-item">
+            <img alt="C" src="assets/skills/conocimiento/c.png">
+            <p>C</p>
+        </div>
+
+        <div class="skill-item">
+            <img alt="C++" src="assets/skills/conocimiento/c++.png">
+            <p>C++</p>
+        </div>
+        <div class="skill-item">
+            <img alt="C#" src="assets/skills/conocimiento/c%23.png">
+            <p>C#</p>
+        </div>
+        <div class="skill-item">
+            <img alt="HTML" src="assets/skills/conocimiento/html.png">
+            <p>HTML</p>
+        </div>
+        <div class="skill-item">
+            <img alt="CSS" src="assets/skills/conocimiento/css.png">
+            <p>CSS</p>
+        </div>
+        <div class="skill-item">
+            <img alt="JavaScript" src="assets/skills/conocimiento/js.png">
+            <p>JavaScript</p>
+        </div>
+        <div class="skill-item">
+            <img alt="TypeScript" src="assets/skills/conocimiento/ts.png">
+            <p>TypeScript</p>
+        </div>
+        <div class="skill-item">
+            <img alt="SQL" src="assets/skills/conocimiento/sql.png">
+            <p>SQL</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Java" src="assets/skills/conocimiento/java.png">
+            <p>Java</p>
+        </div>
+        <div class="skill-item">
+            <img alt="LUA" src="assets/skills/conocimiento/lua.png">
+            <p>LUA</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Windows" src="assets/skills/conocimiento/windows.png">
+            <p>Windows</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Linux" src="assets/skills/conocimiento/linux.png">
+            <p>Linux</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Python" src="assets/skills/conocimiento/python.png">
+            <p>Python</p>
+        </div>
+    </div>
+    <h3 class="section-subtitle" id="aptitudes-title">Aptitudes</h3>
+    <div id="skills-grid-aptitudes" class="skills-grid">
+        <div class="skill-item">
+            <img alt="Creatividad" src="assets/skills/aptitudes/creatividad.png">
+            <p id="aptitude_0">Creatividad</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Iniciativa" src="assets/skills/aptitudes/iniciativa.png">
+            <p id="aptitude_1">Iniciativa</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Mentalidad de crecer" src="assets/skills/aptitudes/mentalidad_de_crecer.png">
+            <p id="aptitude_2">Mentalidad de crecer</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Capacidad de aprender" src="assets/skills/aptitudes/capacidad_de_aprender.png">
+            <p id="aptitude_3">Capacidad de aprender</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Diligencia" src="assets/skills/aptitudes/diligencia.png">
+            <p id="aptitude_4">Diligencia</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Dinamismo" src="assets/skills/aptitudes/dinamismo.png">
+            <p id="aptitude_5">Dinamismo</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Amabilidad" src="assets/skills/aptitudes/amabilidad.png">
+            <p id="aptitude_6">Amabilidad</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Simpatía" src="assets/skills/aptitudes/simpatia.png">
+            <p id="aptitude_7">Simpatía</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Curiosidad" src="assets/skills/aptitudes/curiosidad.png">
+            <p id="aptitude_8">Curiosidad</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Proactividad" src="assets/skills/aptitudes/proactividad.png">
+            <p id="aptitude_9">Proactividad</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Manejo de herramientas informáticas" src="assets/skills/aptitudes/herramientas_informaticas.png">
+            <p id="aptitude_10">Manejo de herramientas informáticas</p>
+        </div>
+        <div class="skill-item">
+            <img alt="Capacidad de trabajar en equipo" src="assets/skills/aptitudes/trabajo_en_equipo.png">
+            <p id="aptitude_11">Capacidad de trabajar en equipo</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contacto">
+    <h2 id="title-contact" class="section-title">Contacto</h2>
+    <div class="contact-mail">
+        <p id="contacto-mail-text">¿Quieres contactar conmigo? ¡Mándame un correo!</p>
+        <a id="contacto-mail-button" class="btn" href="mailto:herrerogilv@gmail.com">Enviar email</a>
+    </div>
+    <div class="contact-CV">
+        <p id="contacto-CV-text">¿Quieres saber un poco más de mi? ¡Échale un vistazo a mi CV!</p>
+        <a id="contacto-CV-espanol" class="btn" href="assets/PDF/CV_VÍCTOR_ESPAÑOL.pdf">CV en español</a>
+        <a id="contacto-CV-ingles" class="btn" href="assets/PDF/CV_VÍCTOR_ENGLISH.pdf">CV en inglés</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <p id="footer-text">© 2025 Víctor Herrero Gil | Videogame Developer</p>
+</footer>
+</body>
+</html>
