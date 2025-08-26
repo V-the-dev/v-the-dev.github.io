@@ -275,9 +275,9 @@ const translations = {
         proyectos: "Projects",
         habilidades: "Abilities",
         contacto: "Contact",
-        contacto_mail_text: "Want to contact me? Send me an email!",
+        contacto_mail_text: "Do you want to contact me? Send me an email!",
         contacto_mail_button: "Send email",
-        contacto_CV_text: "Want to know a little more about me? Check out mi CV!",
+        contacto_CV_text: "Do you want to know a bit more about me? Check out my CV!",
         contacto_CV_espanol: "CV in spanish",
         contacto_CV_ingles: "CV in english",
         footer_text: "© 2025 Víctor Herrero Gil | Videogame developer",
@@ -327,6 +327,9 @@ function updateLanguage(lang) {
     const title_contact = document.getElementById('title-contact');
     const about_me_text = document.getElementById('about-me-text');
     const labelText = document.getElementById('labelText');
+    const road_image_desc_1 = document.getElementById('road-image-desc-1');
+    const road_image_desc_2 = document.getElementById('road-image-desc-2');
+    const road_image_desc_3 = document.getElementById('road-image-desc-3');
     const conocimientos_title = document.getElementById('conocimientos-title');
     const aptitudes_title = document.getElementById('aptitudes-title');
     const aptitude_0 = document.getElementById('aptitude_0');
@@ -365,6 +368,9 @@ function updateLanguage(lang) {
     title_contact.innerText = translations[lang].title_contact;
     about_me_text.innerText = translations[lang].about_me_text;
     labelText.innerText = EducationAnimationTexts[lang][currentEducationAnimationText];
+    road_image_desc_1.innerText = EducationAnimationTexts[lang][1];
+    road_image_desc_2.innerText = EducationAnimationTexts[lang][2];
+    road_image_desc_3.innerText = EducationAnimationTexts[lang][3];
     conocimientos_title.innerText = translations[lang].conocimientos_title;
     aptitudes_title.innerText = translations[lang].aptitudes_title;
     aptitude_0.innerText = SkillsTranslationTexts[lang][0];
